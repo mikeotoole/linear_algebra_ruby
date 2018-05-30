@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require './lib/vector'
 
-describe Vector do
+describe Vector do # rubocop:disable BlockLength
   let(:coords) { [2, 4] }
   let(:vector) { Vector.new(coords) }
   let(:vector_two) { Vector.new([2, 3]) }

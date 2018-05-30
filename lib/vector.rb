@@ -1,3 +1,5 @@
+# Euclidean Vector is a geometric object that has magnitude and direction.
+# This class implements operations you can preform with Vectors.
 class Vector
   attr_reader :coordinates
   attr_reader :dimension
@@ -19,11 +21,11 @@ class Vector
   def -(other)
     validate_dimensions(other)
 
-    self.class.new(coordinates.zip(other.coordinates).map{ |a| a.inject(:-) })
+    self.class.new(coordinates.zip(other.coordinates).map { |a| a.inject(:-) })
   end
 
-  def *(value)
-    self.class.new(coordinates.map { |coord| coord * value })
+  def *(other)
+    self.class.new(coordinates.map { |coord| coord * other })
   end
 
   private
@@ -39,8 +41,7 @@ class Vector
   end
 
   def validate_dimensions(other)
-    unless dimension == other.dimension
-      raise ArgumentError, 'Vectors must have the same dimension'
-    end
+    return if dimension == other.dimension
+    raise ArgumentError, 'Vectors must have the same dimension'
   end
 end
